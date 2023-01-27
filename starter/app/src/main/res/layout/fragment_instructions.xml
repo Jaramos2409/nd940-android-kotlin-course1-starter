@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?><!--I utilized a LinearLayout inside of a ScrollView here because the information displayed is fairly straightforward
+ and I'd like the user to be able to scroll down in case their phone screen is smaller than the ones I tested with. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.InstructionsFragment">
+
+    <data>
+
+        <variable
+            name="instructionsViewModel"
+            type="com.udacity.shoestore.viewmodels.InstructionsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/app_screen_side_margin">
+
+            <TextView
+                android:id="@+id/instructions_text_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/app_screen_bottom_padding"
+                android:text="@string/keep_track_of_your_shoes"
+                android:textAlignment="center"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/instructions_text_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/app_screen_bottom_padding"
+                android:text="@string/the_next_screen_will_display_your_current_list_of_shoes_to_add_shoes_you_must_tap_on_the_button_on_the_bottom_right_of_the_screen_once_you_finish_filling_out_all_the_details_of_your_new_shoe_you_will_be_taken_back_to_your_now_updated_list_of_shoes"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navigate_to_shoe_list_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/button_bottom_padding"
+                android:onClick="@{() -> instructionsViewModel.navigateToShoeListScreen()}"
+                android:text="@string/go_to_shoe_list" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><!--I utilized a LinearLayout inside of a ScrollView here because the information displayed is fairly straightforward
+ and I'd like the user to be able to scroll down in case their phone screen is smaller than the ones I tested with. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.WelcomeScreenFragment">
+
+    <data>
+
+        <variable
+            name="welcomeScreenViewModel"
+            type="com.udacity.shoestore.viewmodels.WelcomeScreenViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/app_screen_side_margin">
+
+            <TextView
+                android:id="@+id/welcome_to_shoe_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/app_screen_bottom_padding"
+                android:text="@string/welcome_to_the_shoestore"
+                android:textAlignment="center"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/click_button_below_for_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/app_screen_bottom_padding"
+                android:text="@string/click_the_button_below_to_get_instructions_on_how_to_use_the_app"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/navigate_to_instructions_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/button_bottom_padding"
+                android:onClick="@{() -> welcomeScreenViewModel.navigateToInstructionsScreen()}"
+                android:text="@string/instructions" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

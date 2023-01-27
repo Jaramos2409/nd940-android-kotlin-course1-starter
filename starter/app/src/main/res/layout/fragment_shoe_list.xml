@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--I utilized a LinearLayout inside of a ScrollView here because the information displayed is fairly straightforward
+ and I'd like the user to be able to scroll down in case their phone screen is smaller than the ones I tested with. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.ShoeListFragment">
+
+    <data>
+
+        <variable
+            name="shoeListFragmentViewModel"
+            type="com.udacity.shoestore.viewmodels.ShoeListFragmentViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/shoe_list_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/shoe_list_linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_shoe_to_list_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/add_a_shoe_to_the_list"
+            android:onClick="@{() -> shoeListFragmentViewModel.navigateToShoeDetailScreen()}"
+            android:src="@drawable/baseline_add_20" />
+
+    </FrameLayout>
+
+</layout>

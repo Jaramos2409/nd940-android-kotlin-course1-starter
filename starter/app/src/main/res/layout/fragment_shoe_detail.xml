@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?><!--I utilized a LinearLayout inside of a ScrollView here because the information displayed is fairly straightforward
+ and I'd like the user to be able to scroll down in case their phone screen is smaller than the ones I tested with. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.ShoeDetailFragment">
+
+    <data>
+
+        <variable
+            name="shoeDetailViewModel"
+            type="com.udacity.shoestore.viewmodels.ShoeDetailViewModel" />
+
+        <import type="com.udacity.shoestore.converters.Converter" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/app_screen_side_margin">
+
+            <TextView
+                android:id="@+id/shoe_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/app_screen_top_padding"
+                android:layout_marginBottom="@dimen/app_screen_bottom_padding"
+                android:text="@string/shoe_details"
+                android:textAlignment="center"
+                android:textSize="@dimen/screen_title_text_size" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/shoe_name_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/edit_text_padding">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shoe_name_text_input_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_box_height"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    android:text="@={shoeDetailViewModel.shoeName}"
+                    android:textColorHint="#546E7A">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/company_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/edit_text_padding">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/company_text_input_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_box_height"
+                    android:hint="@string/company"
+                    android:inputType="text"
+                    android:text="@={shoeDetailViewModel.shoeCompany}"
+                    android:textColorHint="#546E7A">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/shoe_size_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/edit_text_padding">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shoe_size_text_input_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_box_height"
+                    android:hint="@string/shoe_size"
+                    android:inputType="number"
+                    android:text="@={Converter.doubleToString(shoeDetailViewModel.shoeSize)}"
+                    android:textColorHint="#546E7A">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/edit_text_padding">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description_text_input_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_box_height"
+                    android:hint="@string/description"
+                    android:inputType="text"
+                    android:text="@={shoeDetailViewModel.shoeDescription}"
+                    android:textColorHint="#546E7A">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/button_bottom_padding"
+                android:enabled="false"
+                android:onClick="@{() -> shoeDetailViewModel.saveAndNavigateToShoeListScreen()}"
+                android:text="@string/save" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/button_bottom_padding"
+                android:onClick="@{() -> shoeDetailViewModel.cancelAndNavigateToShoeListScreen()}"
+                android:text="@string/cancel" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_title_text_size">48sp</dimen>
+    <dimen name="app_screen_side_margin">16dp</dimen>
+    <dimen name="app_screen_top_padding">75dp</dimen>
+    <dimen name="edit_text_box_height">50dp</dimen>
+    <dimen name="app_screen_bottom_padding">30dp</dimen>
+    <dimen name="edit_text_padding">16dp</dimen>
+    <dimen name="button_bottom_padding">10dp</dimen>
+</resources>
